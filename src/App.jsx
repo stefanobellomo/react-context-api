@@ -19,7 +19,7 @@ function App() {
   function handleClick() {
     if (budgetMode === false) {
       setBudgetMode(true)
-      setDataProducts()
+      filterPrice()
     } else {
       setBudgetMode(false)
     }
@@ -27,8 +27,12 @@ function App() {
   }
 
   function filterPrice() {
-    const filtered = dataProducts.filter(minPrice => minPrice.price <= 30)
+    const filtered = dataProducts.filter(minPrice => {
+      console.log(typeof (minPrice.price));
+      return minPrice.price <= 30;
+    });
     setDataProducts(filtered)
+    console.log(filtered);
   }
 
   // const [favourites, setFavourites] = useState([])
