@@ -12,7 +12,17 @@ import { useState } from 'react'
 
 function App() {
 
-  const [budgetMode, setBudgetMode] = useState(null)
+  const [budgetMode, setBudgetMode] = useState(false)
+
+  function handleClick() {
+    if (budgetMode === false) {
+      setBudgetMode(true)
+
+    } else {
+      setBudgetMode(false)
+    }
+    // console.log(budgetMode);
+  }
 
   // const [favourites, setFavourites] = useState([])
 
@@ -36,7 +46,7 @@ function App() {
   return (
     <>
 
-      <budgetContext.Provider value={{}}>
+      <budgetContext.Provider value={{ handleClick, budgetMode }}>
         <BrowserRouter>
           <Routes>
             <Route element={<DefaultLayout />}>

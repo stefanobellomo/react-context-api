@@ -1,12 +1,12 @@
 import { Outlet } from "react-router-dom"
-import { NavLink, Link } from "react-router-dom"
+import Navbar from "../components/Navbar"
 
 
 export default function DefaultLayout() {
     return (
         <>
             <header>
-                <nav className="navbar navbar-expand-sm navbar-light bg-primary">
+                {/* <nav className="navbar navbar-expand-sm navbar-light bg-primary">
                     <div className="container-fluid">
                         <NavLink className="navbar-brand" to={'/'}>Homepage</NavLink>
                         <div className="collapse navbar-collapse" id="navbarID">
@@ -18,7 +18,8 @@ export default function DefaultLayout() {
                             </div>
                         </div>
                     </div>
-                </nav>
+                </nav> */}
+                <Navbar />
 
                 <div className="p-5 mb-4 bg-light rounded-3">
                     <div className="container-fluid py-5">
