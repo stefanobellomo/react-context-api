@@ -4,6 +4,7 @@ import axios from "axios"
 import { Link } from "react-router-dom"
 import FavouritesContext from "../context/FauvoritesContext"
 import { useContext } from "react"
+import data from "../assets/data"
 
 export default function Prodotto() {
 
@@ -11,22 +12,26 @@ export default function Prodotto() {
 
     const { id } = useParams()
     const navigate = useNavigate()
-    const [product, setProduct] = useState({ rating: {} })
+    const [product, setProduct] = useState(data)
+    // 
     const nextId = Number(id) + 1
     const prevId = Number(id) - 1
 
-    function fetchData() {
-        axios.get(`https://fakestoreapi.com/products/${id}`)
-            .then(response => {
-                setProduct(response.data)
-                if (response.data === '') {
-                    console.log('error 404');
-                    navigate('/errore')
-                }
-            })
-    }
+    console.log(product);
 
-    useEffect(fetchData, [id])
+
+    // function fetchData() {
+    //     axios.get(`https://fakestoreapi.com/products/${id}`)
+    //         .then(response => {
+    //             setProduct(response.data)
+    //             if (response.data === '') {
+    //                 console.log('error 404');
+    //                 navigate('/errore')
+    //             }
+    //         })
+    // }
+
+    // useEffect(fetchData, [id])
 
     return (
         <>

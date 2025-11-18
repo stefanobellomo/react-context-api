@@ -1,23 +1,24 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { Link } from "react-router-dom"
+import data from "../assets/data"
 
 export default function Prodotti() {
 
-    const endpoint = 'https://fakestoreapi.com/products'
+    // const endpoint = 'https://fakestoreapi.com/products'
 
-    const [products, setProducts] = useState([])
+    const [products, setProducts] = useState(data)
 
-    useEffect(handleGet, [])
+    // useEffect(handleGet, [])
 
-    function handleGet() {
-        axios.get(endpoint)
-            .then(res => {
-                setProducts(res.data)
-            })
-    }
+    // function handleGet() {
+    //     axios.get(endpoint)
+    //         .then(res => {
+    //             setProducts(res.data)
+    //         })
+    // }
 
-    console.log(products);
+    console.log(products.id);
 
 
     return (

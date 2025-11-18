@@ -8,20 +8,27 @@ import FavouritesContext from './context/FauvoritesContext'
 import DefaultLayout from './layouts/DefaultLayout'
 import budgetContext from './context/BudgetContext'
 import { useState } from 'react'
+import data from './assets/data'
 
 
 function App() {
 
   const [budgetMode, setBudgetMode] = useState(false)
+  const [dataProducts, setDataProducts] = useState(data)
 
   function handleClick() {
     if (budgetMode === false) {
       setBudgetMode(true)
-
+      setDataProducts()
     } else {
       setBudgetMode(false)
     }
     // console.log(budgetMode);
+  }
+
+  function filterPrice() {
+    const filtered = dataProducts.filter(priz => priz.price <= 30)
+    setDataProducts(filtered)
   }
 
   // const [favourites, setFavourites] = useState([])
@@ -46,7 +53,7 @@ function App() {
   return (
     <>
 
-      <budgetContext.Provider value={{ handleClick, budgetMode }}>
+      <budgetContext.Provider value={{ handleClick, budgetMode, filterPrice }}>
         <BrowserRouter>
           <Routes>
             <Route element={<DefaultLayout />}>
