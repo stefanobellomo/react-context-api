@@ -6,35 +6,37 @@ import Prodotto from './pages/Prodotto'
 import Errore from './pages/Errore'
 import FavouritesContext from './context/FauvoritesContext'
 import DefaultLayout from './layouts/DefaultLayout'
+import budgetContext from './context/BudgetContext'
 import { useState } from 'react'
 
 
 function App() {
 
-  const [favourites, setFavourites] = useState([])
+  const [budgetMode, setBudgetMode] = useState(null)
 
-  function isFavourite(id) {
-    return favourites.includes(id)
-  }
+  // const [favourites, setFavourites] = useState([])
 
-  function toggleFavourites() {
-    if (!isFavourite(id)) {
-      setFavourites([id, ...favourites])
-    } else {
-      removeFavourite(id)
-    }
+  // function isFavourite(id) {
+  //   return favourites.includes(id)
+  // }
 
-  }
+  // function toggleFavourites(id) {
+  //   if (!isFavourite(id)) {
+  //     setFavourites([id, ...favourites])
+  //   } else {
+  //     removeFavourite(id)
+  //   }
+  // }
 
-  function removeFavourite(id) {
-    const filtered = favourites.filter(favId => favId !== id)
-    setFavourites(filtered)
-  }
+  // function removeFavourite(id) {
+  //   const filtered = favourites.filter(favId => favId !== id)
+  //   setFavourites(filtered)
+  // }
 
   return (
     <>
 
-      <FavouritesContext.Provider value={{ setFavourites, favourites, isFavourite, toggleFavourites }}>
+      <budgetContext.Provider value={{}}>
         <BrowserRouter>
           <Routes>
             <Route element={<DefaultLayout />}>
@@ -46,7 +48,7 @@ function App() {
             </Route>
           </Routes>
         </BrowserRouter>
-      </FavouritesContext.Provider>
+      </budgetContext.Provider>
 
     </>
   )

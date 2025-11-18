@@ -7,7 +7,7 @@ import { useContext } from "react"
 
 export default function Prodotto() {
 
-    const { toggleFavourites, isFavourite } = useContext(FavouritesContext)
+    // const { toggleFavourites, isFavourite } = useContext(FavouritesContext)
 
     const { id } = useParams()
     const navigate = useNavigate()
@@ -40,9 +40,9 @@ export default function Prodotto() {
                                         <img src={product.image} alt={product.title} />
                                     </div>
                                     <div className="d-flex flex-column product-content">
-                                        <button className="btn like" onClick={() => toggleFavourites(product.id)}>
+                                        {/* <button className="btn like" onClick={() => toggleFavourites(product.id)}>
                                             <i className={`bi bi-heart${isFavourite(product.id) ? '-fill' : ''}`}></i>
-                                        </button>
+                                        </button> */}
                                         <h3>{product.title}</h3>
                                         <p className="">
                                             <span className="fs-5">{product.description}</span>
