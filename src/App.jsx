@@ -4,60 +4,37 @@ import ChiSiamo from './pages/ChiSiamo'
 import Prodotti from './pages/Prodotti'
 import Prodotto from './pages/Prodotto'
 import Errore from './pages/Errore'
-import FavouritesContext from './context/FauvoritesContext'
 import DefaultLayout from './layouts/DefaultLayout'
 import budgetContext from './context/BudgetContext'
-import { useState } from 'react'
 import data from './assets/data'
-
+import { useState, useEffect } from 'react'
 
 function App() {
 
   const [budgetMode, setBudgetMode] = useState(false)
-  const [dataProducts, setDataProducts] = useState(data)
+  const [products, setProducts] = useState(data)
 
   function handleClick() {
-    if (budgetMode === false) {
-      setBudgetMode(true)
+    setBudgetMode(!budgetMode)
+  }
+
+  useEffect(() => {
+    if (budgetMode) {
       filterPrice()
     } else {
-      setBudgetMode(false)
+      setProducts(data)
     }
-    // console.log(budgetMode);
-  }
+  }, [budgetMode])
 
   function filterPrice() {
-    const filtered = dataProducts.filter(minPrice => {
-      console.log(typeof (minPrice.price));
-      return minPrice.price <= 30;
-    });
-    setDataProducts(filtered)
-    console.log(filtered);
+    const filtered = products.filter((product) => product.price <= 30)
+    setProducts(filtered)
   }
-
-  // const [favourites, setFavourites] = useState([])
-
-  // function isFavourite(id) {
-  //   return favourites.includes(id)
-  // }
-
-  // function toggleFavourites(id) {
-  //   if (!isFavourite(id)) {
-  //     setFavourites([id, ...favourites])
-  //   } else {
-  //     removeFavourite(id)
-  //   }
-  // }
-
-  // function removeFavourite(id) {
-  //   const filtered = favourites.filter(favId => favId !== id)
-  //   setFavourites(filtered)
-  // }
 
   return (
     <>
 
-      <budgetContext.Provider value={{ handleClick, budgetMode, filterPrice }}>
+      <budgetContext.Provider value={{ handleClick, budgetMode, products }}>
         <BrowserRouter>
           <Routes>
             <Route element={<DefaultLayout />}>

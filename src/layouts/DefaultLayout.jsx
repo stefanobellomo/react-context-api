@@ -6,19 +6,7 @@ export default function DefaultLayout() {
     return (
         <>
             <header>
-                {/* <nav className="navbar navbar-expand-sm navbar-light bg-primary">
-                    <div className="container-fluid">
-                        <NavLink className="navbar-brand" to={'/'}>Homepage</NavLink>
-                        <div className="collapse navbar-collapse" id="navbarID">
-                            <div className="navbar-nav">
-                                <NavLink className="nav-link active" aria-current="page" to={'/chi-siamo'}>Chi siamo</NavLink>
-                            </div>
-                            <div className="navbar-nav">
-                                <NavLink className="nav-link active" aria-current="page" to={'/Prodotti'}>Prodotti</NavLink>
-                            </div>
-                        </div>
-                    </div>
-                </nav> */}
+
                 <Navbar />
 
                 <div className="p-5 mb-4 bg-light rounded-3">

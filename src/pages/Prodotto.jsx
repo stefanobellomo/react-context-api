@@ -1,9 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom"
-import { useEffect, useState } from "react"
-import axios from "axios"
+import { useState } from "react"
 import { Link } from "react-router-dom"
-import FavouritesContext from "../context/FauvoritesContext"
-import { useContext } from "react"
 import data from "../assets/data"
 
 export default function Prodotto() {

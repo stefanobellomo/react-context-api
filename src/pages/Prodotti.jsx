@@ -1,29 +1,13 @@
-import { useEffect, useState } from "react"
-import axios from "axios"
+import { useContext } from "react"
 import { Link } from "react-router-dom"
-import data from "../assets/data"
+import budgetContext from "../context/BudgetContext"
 
 export default function Prodotti() {
 
-    // const endpoint = 'https://fakestoreapi.com/products'
-
-    const [products, setProducts] = useState(data)
-
-    // useEffect(handleGet, [])
-
-    // function handleGet() {
-    //     axios.get(endpoint)
-    //         .then(res => {
-    //             setProducts(res.data)
-    //         })
-    // }
-
-    console.log(products.id);
-
+    const { products } = useContext(budgetContext)
 
     return (
         <>
-
             <main>
                 <div className="row row-cols-1 row-cols-lg-2 g-3">
 
