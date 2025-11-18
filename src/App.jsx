@@ -27,7 +27,7 @@ function App() {
   }
 
   function filterPrice() {
-    const filtered = dataProducts.filter(priz => priz.price <= 30)
+    const filtered = dataProducts.filter(minPrice => minPrice.price <= 30)
     setDataProducts(filtered)
   }
 
